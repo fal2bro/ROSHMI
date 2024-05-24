@@ -11,6 +11,14 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
 )
 
+execute_process(
+    COMMAND ${PYTHON_EXECUTABLE} -m pip install --upgrade pip
+)
+execute_process(
+    COMMAND ${PYTHON_EXECUTABLE} -m pip install -r ${CMAKE_SOURCE_DIR}/mypkg/src/requirements.txt
+)
+
+
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
