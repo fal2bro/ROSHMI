@@ -5,11 +5,12 @@ from std_msgs.msg import Int64
 import myDynamixel
 import time
 
+Motor_Velocity = -50
 rospy.init_node('dynamixeltest')
 pub = rospy.Publisher('Dynamixelinfo', Int64, queue_size=1)
 dxl = myDynamixel.Dxlfunc()
 
-MotorNum = dxl.init('/dev/ttyUSB0', baudrate=4000000)
+MotorNum = dxl.init('/dev/ttyUSB0', baudrate=57600)
 
 if MotorNum > 0:
     pub.publish(1)
