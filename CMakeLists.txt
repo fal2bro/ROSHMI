@@ -9,6 +9,8 @@ project(mypkg)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   rospy
+  std_msgs
+
 )
 
 execute_process(
@@ -111,7 +113,7 @@ execute_process(
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES mypkg
-#  CATKIN_DEPENDS rospy
+   CATKIN_DEPENDS rospy 
 #  DEPENDS system_lib
 )
 
