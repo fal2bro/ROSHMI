@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 
 import rospy
-from mypkg.msg import *
+
+
+from mypkg.msg import SetPosition
 import myDynamixel
 
 def set_goal_pos_callback(data):
@@ -51,7 +53,7 @@ def set_goal_pwm(data):
 
 
 
-def mydynamixel_controll():
+def mydynamixel_control():
     rospy.init_node('mydynamixel_control')
     rospy.Subscriber('position_control',SetPosition,set_goal_pos_callback)
     rospy.Subscriber('current_control',SetCurrent,set_goal_current_callback)
@@ -66,7 +68,7 @@ def main():
     MotorNum = dxl.init('/dev/ttyUSB0', baudrate=57600)
     if MotorNum >0:
         print("dynamixel controller ready")
-         mydynamixel_controll()
+        mydynamixel_control()
     else:
         print("初期化失敗")
 
